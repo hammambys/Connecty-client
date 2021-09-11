@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Menu, Icon } from "semantic-ui-react";
-import { AuthContext } from "../context/auth";
 
 function LeftMenu() {
   const pathname = window.location.pathname;
