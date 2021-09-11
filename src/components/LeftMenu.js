@@ -3,7 +3,6 @@ import { Menu, Icon } from "semantic-ui-react";
 import { AuthContext } from "../context/auth";
 
 function LeftMenu() {
-  const { user, logout } = useContext(AuthContext);
   const pathname = window.location.pathname;
 
   const path = pathname === "/" ? "home" : pathname.substr(1);
