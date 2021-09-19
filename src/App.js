@@ -10,7 +10,9 @@ import AuthRoute from "./util/AuthRoute";
 
 import MenuBar from "./components/MenuBar";
 import Home from "./pages/Home";
+import Feed from "./pages/Feed";
 import Login from "./pages/Login";
+import Forgotpwd from "./pages/Forgotpwd";
 import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 
@@ -20,9 +22,10 @@ function App() {
       <Router>
         <Container>
           <MenuBar />
-
           <Route exact path="/" component={Home} />
+          <Route exact path="/feed" component={Feed} />
           <AuthRoute exact path="/login" component={Login} />
+          <Route exact path="/forgotpwd" component={Forgotpwd} />
           <AuthRoute exact path="/register" component={Register} />
           <Route exact path="/posts/:postId" component={SinglePost} />
         </Container>

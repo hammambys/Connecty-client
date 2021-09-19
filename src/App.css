@@ -3,8 +3,11 @@
   font-family: "Style Script", cursive;
   font-size: 20px;
 }
+
 .ui.container {
-  margin: 30px !important;
+  background: #fff6e8 !important;
+  padding: 50px;
+  padding-bottom: 300px;
   width: auto;
 }
 
@@ -40,9 +43,17 @@ h4 {
   margin-top: 10px;
 }
 
+.home-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 100px;
+}
+
 .form-container {
   width: 400px;
-  margin: auto;
+  padding: 20px;
+  margin-right: 50px;
+  background-color: white;
 }
 .suggestions {
   justify-content: space-between !important;

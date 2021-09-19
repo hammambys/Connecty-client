@@ -1,34 +1,29 @@
-import React, { useContext, useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
-import { useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
-
-import { AuthContext } from '../context/auth';
-import { useForm } from '../util/hooks';
+import React, { useContext, useState } from "react";
+import { Button, Form } from "semantic-ui-react";
+import { useMutation } from "@apollo/react-hooks";
+import { Link } from "react-router-dom";
+import gql from "graphql-tag";
+import { AuthContext } from "../context/auth";
+import { useForm } from "../util/hooks";
 
 function Login(props) {
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
 
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
 
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-    update(
-      _,
-      {
-        data: { login: userData }
-      }
-    ) {
+    update(_, { data: { login: userData } }) {
       context.login(userData);
-      props.history.push('/');
+      props.history.push("/");
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
     },
-    variables: values
+    variables: values,
   });
 
   function loginUserCallback() {
@@ -37,8 +32,8 @@ function Login(props) {
 
   return (
     <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-        <h1>Login</h1>
+      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+        <h1 style={{ textAlign: "center" }}>Login</h1>
         <Form.Input
           label="Username"
           placeholder="Username.."
@@ -57,7 +52,7 @@ function Login(props) {
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <Button type="submit" primary>
+        <Button type="submit" fluid color="brown">
           Login
         </Button>
       </Form>
@@ -70,6 +65,20 @@ function Login(props) {
           </ul>
         </div>
       )}
+      <Link
+        to="/Forgotpwd"
+        style={{
+          textAlign: "center",
+          padding: "10px",
+        }}
+      >
+        <p style={{ borderBottom: "1px solid", padding: "10px" }}>
+          Forgot Password?
+        </p>
+      </Link>
+      <Button size="massive" inverted fluid basic color="brown">
+        Create an account
+      </Button>
     </div>
   );
 }
