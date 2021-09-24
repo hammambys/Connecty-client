@@ -45,16 +45,15 @@ h4 {
 
 .home-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-top: 100px;
 }
 
 .form-container {
   width: 400px;
-  padding: 20px;
-  margin-right: 50px;
-  background-color: white;
+  margin: auto;
 }
+
 .suggestions {
   justify-content: space-between !important;
 }

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
+import { Link } from "react-router-dom";
 import gql from 'graphql-tag';
 
 import { AuthContext } from '../context/auth';
@@ -40,7 +41,7 @@ function Register(props) {
   return (
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-        <h1>Register</h1>
+        <h1 style={{textAlign:'center'}}>Register</h1>
         <Form.Input
           label="Username"
           placeholder="Username.."
@@ -77,9 +78,14 @@ function Register(props) {
           error={errors.confirmPassword ? true : false}
           onChange={onChange}
         />
-        <Button type="submit" primary>
+        <Button type="submit"  fluid color="brown">
           Register
         </Button>
+        <p style={{textAlign:"center"}}>Already have an account?
+          <Link to="/login">
+          Click here
+          </Link>
+        </p>
       </Form>
       {Object.keys(errors).length > 0 && (
         <div className="ui error message">

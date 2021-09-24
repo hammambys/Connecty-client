@@ -72,11 +72,11 @@ function Login(props) {
           padding: "10px",
         }}
       >
-        <p style={{ borderBottom: "1px solid", padding: "10px" }}>
+        <p style={{  padding: "10px" }}>
           Forgot Password?
         </p>
       </Link>
-      <Button size="massive" inverted fluid basic color="brown">
+      <Button as={Link} to="/register" size="massive"  fluid basic color="brown">
         Create an account
       </Button>
     </div>
