@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="home-container">
       <div className="left">
-        <h1 class="logo">Connecty</h1>
+        <h1 className="logo">Connecty</h1>
         <h2>a beautiful place to connect with the world!</h2>
         <p>
           made with love{" "}
